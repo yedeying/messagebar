@@ -35,4 +35,4 @@ messagebar.alert(option);
 **tips:** the values of every property of option will be set if you ignore it. That is to say, you can offer any number propertys of the option, if you want to use the default value.
 
 #### Demo
-[Here is a demo](http://yedeying999.github.io/sites/messagebar)
+[Here is a demo](http://yedeying999.github.io/sites/messagebar/index.html)

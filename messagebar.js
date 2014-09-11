@@ -96,10 +96,12 @@ var messagebar = {
     "background-color": "#333",
     "color": "#fff",
     "padding": "8px 15px",
-    "margin-bottom": "10px"
+    "margin-bottom": "10px",
+    "z-index": "999999",
+    "position": "relative"
   },
   _wrapStyle: {
-    "position": "absolute",
+    "position": "fixed",
     "font-size": "14px",
     "font-weight": "bold",
     "display": "none"
@@ -122,6 +124,10 @@ var messagebar = {
       window.event.cancelBubble = true;
     }
     that._wrap.removeChild(that._eventTarget(e).parentNode);
+    this._count -= 1;
+    if (this._count === 0) {
+      this._wrap.style.display = 'none';
+    }
   },
   _eventTarget: function (e) {
     if (e.target) {
@@ -187,12 +193,12 @@ var messagebar = {
       box.style.opacity = '0';
       setTimeout(function () {
         that._wrap.removeChild(box);
+        this._count -= 1;
+        if (this._count === 0) {
+          this._wrap.style.display = 'none';
+        }
       }, 1000);
     }, config.time);
-    this._count -= 1;
-    if (this._count === 0) {
-      this._wrap.style.display = 'none';
-    }
   },
   _show: function (box, config) {
     var that = this;
