@@ -220,4 +220,8 @@ var messagebar = {
     this._create.apply(this, arguments);
   }
 };
-messagebar.init();
+document.onreadystatechange = function () {
+  if (document.readyState === 'complete') {
+    messagebar.init();
+  }
+};
